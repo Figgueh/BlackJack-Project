@@ -1,0 +1,29 @@
+﻿@model BlackJackProject.Models.BlackJack
+
+
+@{
+    ViewData["Title"] = "Play";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*Draw the blackjack table*@
+<img src="~/images/blackjack_table.png" class="center-block" />
+
+
+@*Draw the amount on the table*@
+<label class="pot"> Amount on table: @Model.Pot </label>
+
+
+@*Draw the dealers hand*@
+@{
+    int i = 0;
+    }
+@foreach (var card in Model.Dealer.Cards)
+{
+    string dealer_card = "dealer_card" + i;
+    <img class="@dealer_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
+    i++;
+}
+
+<h2>Play</h2>
+

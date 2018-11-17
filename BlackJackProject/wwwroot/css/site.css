@@ -5,33 +5,52 @@ body {
     padding-bottom: 20px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.balance{
+    position: absolute;
+    left: 200px;
+    top: 280px;
+    color: floralwhite;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.bet {
+    position: absolute;
+    left: 200px;
+    top: 300px;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.pot {
+    position: absolute;
+    left: 200px;
+    top: 325px;
+    color: floralwhite;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.errors {
+    position: absolute;
+    left: 200px;
+    top: 350px;
+    color: indianred;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.btn_start{
+    position:absolute;
+    left: 700px;
+    top: 400px;
+}
+
+.dealer_card0{
+    position:absolute;
+    left: 600px;
+    top: 100px;
+}
+.dealer_card1 {
+    position: absolute;
+    left: 700px;
+    top: 100px;
+}
+
+.add {
+    position: absolute;
+    left: 390px;
+    top: 300px;
 }
