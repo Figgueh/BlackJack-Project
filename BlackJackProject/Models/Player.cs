@@ -8,7 +8,7 @@ namespace BlackJackProject.Models
     public class Player
     {
         private int _balance;
-        private List<Card> _hand;
+        private List<Card> _hand = new List<Card>();
         private int _handValue;
 
 
@@ -54,6 +54,27 @@ namespace BlackJackProject.Models
                 //Add all the values together.
                 HandValue += card.Value;
             }
+        }
+
+        public void addCardToHand(List<Card> deckInPlay)
+        {
+            Card newcard;
+
+            //Get the amount of cards in the deck
+            int totalCardsInPlay = deckInPlay.Count();
+
+            //Get a new random number based on the number of cards we have in play.
+            Random random = new Random();
+            int randomNumber = random.Next(totalCardsInPlay);
+
+            //Find the card at that number
+            newcard = deckInPlay[randomNumber];
+
+            //Remove it from the deck
+            deckInPlay.Remove(newcard);
+
+            //Add it to the list of cards
+            Hand.Add(newcard);
         }
     }
 }

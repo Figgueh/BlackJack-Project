@@ -49,6 +49,39 @@ body {
     top: 100px;
 }
 
+
+.player_card0{
+    position: absolute;
+    left: 600px;
+    top: 500px;
+}
+.player_card1 {
+    position: absolute;
+    left: 700px;
+    top: 500px;
+}
+
+.dealer_value {
+    position: absolute;
+    left: 900px;
+    top: 325px;
+    color: floralwhite;
+    padding: 5px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 5px 5px;
+}
+.player_value {
+    position: absolute;
+    left: 900px;
+    top: 375px;
+    color: floralwhite;
+    padding: 5px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 5px 5px;
+}
+
 .add {
     position: absolute;
     left: 390px;

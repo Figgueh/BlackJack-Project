@@ -16,14 +16,34 @@
 
 @*Draw the dealers hand*@
 @{
-    int i = 0;
-    }
+    int d = 0;
+    int dCardValue = 0;
+}
 @foreach (var card in Model.Dealer.Cards)
 {
-    string dealer_card = "dealer_card" + i;
+    string dealer_card = "dealer_card" + d;
     <img class="@dealer_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
-    i++;
+    dCardValue += card.Value;
+    d++;
 }
 
-<h2>Play</h2>
+@*Draw the label for the dealers value*@
+<label class="dealer_value">Dealer has: @dCardValue</label>
+
+
+@*Draw the players hand*@
+@{
+    int p = 0;
+    int pCardValue = 0;
+}
+@foreach (var card in Model.Player.Hand)
+{
+    string player_card = "player_card" + p;
+    <img class="@player_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
+    pCardValue += card.Value;
+    p++;
+}
+
+@*Draw the label for the dealers value*@
+<label class="player_value">Player has: @pCardValue</label>
 

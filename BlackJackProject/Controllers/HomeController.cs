@@ -50,6 +50,11 @@ namespace BlackJackProject.Controllers
             game.Dealer.addCardToHand(playingCards.DeckList);
 
 
+            //Give two cards to the player.
+            game.Player.addCardToHand(playingCards.DeckList);
+            game.Player.addCardToHand(playingCards.DeckList);
+
+
             return View(game);
         }
 
