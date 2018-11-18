@@ -17,11 +17,11 @@
 @*Draw the dealers hand*@
 @{
     int d = 0;
-    int dHandValue = 0;
+    Model.Dealer.getHandValue();
 }
 
 @*Loop threw each card and get needed values*@
-@foreach (var card in Model.Dealer.Cards)
+@foreach (var card in Model.Dealer.Hand)
 {
     //Pull the name for the style class
     string dealer_card = "dealer_card" + d;
@@ -29,40 +29,18 @@
     //Draw each card
     <img class="@dealer_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
 
-    //Calculate the total value
-    //Catch the ace.
-    if(card.Value == 1)
-    {
-        //If the player has a total value less than 10
-        if (dHandValue <= 10)
-        {
-            //The ace is worth 11 points
-            dHandValue += 11;
-        }
-        else
-        {
-            //If the player total value is more than 10, its worth 1
-            dHandValue += 1;
-        }
-    }
-    else
-    {
-        //Add up the rest of the cards.
-        dHandValue += card.Value;
-    }
-
     //Keeps track of the total number of cards in dealers hand
     d++;
 }
 
 @*Draw the label for the dealers value*@
-<label class="dealer_value">Dealer has: @dHandValue</label>
+<label class="dealer_value">Dealer has: @Model.Dealer.HandValue</label>
 
 
 @*Draw the players hand*@
 @{
     int p = 0;
-    int pHandValue = 0;
+    Model.Player.getHandValue();
 }
 
 @*Loop threw each card and get needed values*@
@@ -74,34 +52,12 @@
     //Draw each card
     <img class="@player_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
 
-    //Calculate the total value
-    //Catch the ace.
-    if (card.Value == 1)
-    {
-        //If the player has a total value less than 10
-        if (pHandValue <= 10)
-        {
-            //The ace is worth 11 points
-            pHandValue += 11;
-        }
-        else
-        {
-            //If the player total value is more than 10, its worth 1
-            pHandValue += 1;
-        }
-    }
-    else
-    {
-        //Add up the rest of the cards.
-        pHandValue += card.Value;
-    }
-
     //Keeps track of the total number of cards in players hand
     p++;
 }
 
 @*Draw the label for the dealers value*@
-<label class="player_value">Player has: @pHandValue</label>
+<label class="player_value">Player has: @Model.Player.HandValue</label>
 
 
 

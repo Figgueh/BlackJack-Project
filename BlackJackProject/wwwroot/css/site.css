@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: cadetblue;
 }
 
 .balance{
@@ -118,4 +119,28 @@ body {
     position: absolute;
     left: 550px;
     top: 400px;
+}
+
+.chip_100{
+    position: absolute;
+    left: 250px;
+    top: 430px;
+}
+
+.chip_25 {
+    position: absolute;
+    left: 300px;
+    top: 460px;
+}
+
+.chip_10 {
+    position: absolute;
+    left: 350px;
+    top: 490px;
+}
+
+.chip_5 {
+    position: absolute;
+    left: 400px;
+    top: 520px;
 }

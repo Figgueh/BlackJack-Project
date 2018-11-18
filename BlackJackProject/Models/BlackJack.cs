@@ -95,7 +95,7 @@ namespace BlackJackProject.Models
             if (Player.HandValue == 21 && Player.Hand.Count == 2)
             {
                 //If the dealer doesnt get blackjack either
-                if(Dealer.HandValue != 21 && Dealer.Cards.Count != 2)
+                if(Dealer.HandValue != 21 && Dealer.Hand.Count != 2)
                 {
                     Winner = Player;
 
@@ -103,7 +103,7 @@ namespace BlackJackProject.Models
                     Pot *= 1.5;
                 }
                 //If the dealer also gets blackjack
-                else if(Dealer.HandValue == 21 && Dealer.Cards.Count == 2)
+                else if(Dealer.HandValue == 21 && Dealer.Hand.Count == 2)
                 {
                     Winner = Dealer;
 
