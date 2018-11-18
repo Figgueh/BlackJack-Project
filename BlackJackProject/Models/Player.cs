@@ -8,7 +8,7 @@ namespace BlackJackProject.Models
 {
     public class Player
     {
-        private double _balance;
+        private double _balance = 500;
         private List<Card> _hand = new List<Card>();
         private int _handValue;
 

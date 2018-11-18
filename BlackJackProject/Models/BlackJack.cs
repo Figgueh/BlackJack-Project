@@ -55,8 +55,6 @@ namespace BlackJackProject.Models
             Player = new Player();
             Dealer = new Dealer();
 
-            //Set new player balance to be 1000.
-            Player.addAmount(1000);
         }
 
 
@@ -75,8 +73,26 @@ namespace BlackJackProject.Models
 
         public void checkState()
         {
+            //Get both hand values
+            Player.getHandValue();
+            Dealer.getHandValue();
+
+            //Check who has the bigger number
+            if (Player.HandValue > Dealer.HandValue)
+            {
+                Winner = Player;
+
+                //Players money is doubled
+                Pot *= 2;
+            }
+            //set the winer to be equal to the player so that he gets his money back.
+            else if (Player.HandValue == Dealer.HandValue)
+                Winner = Player;
+            else
+                Winner = Dealer;
+
             //if the player hits blackjack
-            if(Player.HandValue == 21 && Player.Hand.Count == 2)
+            if (Player.HandValue == 21 && Player.Hand.Count == 2)
             {
                 //If the dealer doesnt get blackjack either
                 if(Dealer.HandValue != 21 && Dealer.Cards.Count != 2)
@@ -96,15 +112,6 @@ namespace BlackJackProject.Models
                 }
             }
 
-            //If the dealer goes over 21
-            if (Dealer.HandValue > 21)
-            {
-                Winner = Player;
-
-                //Players money is doubled
-                Pot *= 2;
-            }
-
             //If the player goes over 21
             if (Player.HandValue > 21)
             {
@@ -114,12 +121,13 @@ namespace BlackJackProject.Models
                 Pot = 0;
             }
 
-
-            //If player and dealer have the same value then its a push.
-            if(Player.HandValue == Dealer.HandValue)
+            //If the dealer goes over 21
+            if (Dealer.HandValue > 21)
             {
-                //set the winer to be equal to the player so that he gets his money back.
                 Winner = Player;
+
+                //Players money is doubled
+                Pot *= 2;
             }
 
             //If the player wins, then deposit the money thats in the pot into his balance.

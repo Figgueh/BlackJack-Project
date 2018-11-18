@@ -53,7 +53,8 @@ namespace BlackJackProject.Controllers
             game.Player.addCardToHand(playingCards.DeckList);
 
             //Check to see if anyone got blackjack
-            game.checkState();
+            if(game.Player.HandValue == 21 || game.Dealer.HandValue == 21)
+                game.checkState();
 
             return View(game);
         }
@@ -63,15 +64,13 @@ namespace BlackJackProject.Controllers
         {
             if (choice == "Hit")
                 game.Player.addCardToHand(playingCards.DeckList);
-                game.checkState();
-
+          
             if (choice == "Stand")
             {
-
-                    game.Dealer.dealersTurn(playingCards.DeckList);
-                    game.checkState();
-
+                game.Dealer.dealersTurn(playingCards.DeckList);
+                game.checkState();
             }
+
 
 
             return View("Play", game);
