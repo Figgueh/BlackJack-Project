@@ -25,16 +25,14 @@ namespace BlackJackProject.Controllers
             //Apply the bet rules
             if (game.Player.Balance > 0)
             {
-                game.checkBet(bet);
-
-                //Validation
                 if (game.Player.Balance < bet)
+                {
                     ViewData["error"] = "Insufficient Funds!";
+                }
+                game.checkBet(bet);
             }
             else
-            {
                 ViewData["error"] = "You dont have anything else to bet!";
-            }
 
             //Send the amount to bet to the view?
             return View(game);

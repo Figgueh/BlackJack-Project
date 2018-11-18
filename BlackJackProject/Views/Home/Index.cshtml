@@ -17,28 +17,26 @@
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
     @*Draw the textbox for betting amount*@
-    <input name="bet" type="text" class="bet" />
+    <button name="bet" value="100"><img src="~/images/100_chip.png" width="50" height="50" class="chip_100" /></button>
+    <button name="bet" value="25"><img src="~/images/25_chip.png" width="50" height="50" class="chip_25" /></button>
+    <button name="bet" value="10"><img src="~/images/10_chip.png" width="50" height="50" class="chip_10" /></button>
+    <button name="bet" value="5"><img src="~/images/5_chip.png" width="50" height="50" class="chip_5" /></button>
 
-    @*Draw the button to submit the amount*@
-    <button class="add" type="submit">Add to bet!</button>
-}
+                @*Draw the button to submit the amount*@
+                <button class="add" type="submit">Add to bet!</button>
+                }
 
-@*Draw the amount on the table*@
-<label class="pot"> Amount on table: @Model.Pot </label>
-@*Draw the holder for the errors*@
-<label class="errors">@ViewData["error"]</label>
+                @*Draw the amount on the table*@
+                <label class="pot"> Amount on table: @Model.Pot </label>
+                @*Draw the holder for the errors*@
+                <label class="errors">@ViewData["error"]</label>
 
 
-@*Play button*@
-@using (Html.BeginForm("Play", "Home", FormMethod.Post))
-{
-    <input type="checkbox" name="started" checked="checked" hidden>
-    <input type="hidden" name="pot" value="@Model.Pot">
-    //Draw the game start button
-    <button class="btn_start" type="submit">Deal Cards!</button>
-}
-
-<img src="~/images/100_chip.png" width="50" height="50" class="chip_100"/>
-<img src="~/images/25_chip.png" width="50" height="50" class="chip_25"/>
-<img src="~/images/10_chip.png" width="50" height="50" class="chip_10"/>
-<img src="~/images/5_chip.png" width="50" height="50" class="chip_5"/>
+                @*Play button*@
+                @using (Html.BeginForm("Play", "Home", FormMethod.Post))
+                {
+                    <input type="checkbox" name="started" checked="checked" hidden>
+                    <input type="hidden" name="pot" value="@Model.Pot">
+                    //Draw the game start button
+                    <button class="btn_start" type="submit">Deal Cards!</button>
+                }
