@@ -103,3 +103,11 @@
 @*Draw the label for the dealers value*@
 <label class="player_value">Player has: @pHandValue</label>
 
+
+
+@*Draw the hit and stand button*@
+@using (Html.BeginForm("Action", "Home", FormMethod.Post)) {
+<input type="submit" name="choice" value="Hit" />
+<input type="submit" name="choice" value="Stand" />
+}
+

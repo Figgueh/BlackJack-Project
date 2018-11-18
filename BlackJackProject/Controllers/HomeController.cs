@@ -41,10 +41,8 @@ namespace BlackJackProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Play(string betamount)
+        public IActionResult Play()
         {
-            int bet = Convert.ToInt32(betamount);
-
             //Give two cards to the dealer.
             game.Dealer.addCardToHand(playingCards.DeckList);
             game.Dealer.addCardToHand(playingCards.DeckList);
@@ -54,8 +52,25 @@ namespace BlackJackProject.Controllers
             game.Player.addCardToHand(playingCards.DeckList);
             game.Player.addCardToHand(playingCards.DeckList);
 
+            //Check to see if anyone got blackjack
+            game.checkState();
 
             return View(game);
+        }
+
+        [HttpPost]
+        public IActionResult Action(string choice)
+        {
+            if (choice == "Hit")
+                game.Player.addCardToHand(playingCards.DeckList);
+                game.checkState();
+
+            if (choice == "Stand")
+                game.Dealer.dealersTurn(playingCards.DeckList);
+                game.checkState();
+
+
+            return View("Play", game);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

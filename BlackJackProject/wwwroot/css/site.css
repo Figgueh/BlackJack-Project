@@ -48,6 +48,16 @@ body {
     left: 700px;
     top: 100px;
 }
+.dealer_card2 {
+    position: absolute;
+    left: 800px;
+    top: 100px;
+}
+.dealer_card3 {
+    position: absolute;
+    left: 900px;
+    top: 100px;
+}
 
 
 .player_card0{
@@ -58,6 +68,16 @@ body {
 .player_card1 {
     position: absolute;
     left: 700px;
+    top: 500px;
+}
+.player_card2 {
+    position: absolute;
+    left: 800px;
+    top: 500px;
+}
+.player_card3 {
+    position: absolute;
+    left: 900px;
     top: 500px;
 }
 

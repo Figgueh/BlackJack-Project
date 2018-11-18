@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static BlackJackProject.Models.Card;
 
 namespace BlackJackProject.Models
 {
     public class Player
     {
-        private int _balance;
+        private double _balance;
         private List<Card> _hand = new List<Card>();
         private int _handValue;
 
 
-        public int Balance {
+        public double Balance {
             get => _balance;
             set
             {
@@ -34,26 +35,16 @@ namespace BlackJackProject.Models
             }
         }
 
-        public void addAmount(int amount)
+        public void addAmount(double amount)
         {
             //Add the amount to the balance.
             Balance += amount;
         }
 
-        public void removeAmount(int amount)
+        public void removeAmount(double amount)
         {
             //Remove the amount from the balance.
             Balance -= amount;
-        }
-
-        public void getHandValue()
-        {
-            //Loop threw each card the player holder
-            foreach(var card in Hand)
-            {
-                //Add all the values together.
-                HandValue += card.Value;
-            }
         }
 
         public void addCardToHand(List<Card> deckInPlay)
@@ -75,6 +66,34 @@ namespace BlackJackProject.Models
 
             //Add it to the list of cards
             Hand.Add(newcard);
+        }
+
+        public void getHandValue()
+        {
+            //Get the value of the dealers hand:
+            foreach (var card in Hand)
+            {
+                //Catch the ace
+                if (card.Value == (int)CardType.Ace)
+                {
+                    //If the player has a total value less than 10
+                    if (HandValue <= 10)
+                    {
+                        //The ace is worth 11 points
+                        HandValue += 11;
+                    }
+                    else
+                    {
+                        //If the player total value is more than 10, its worth 1
+                        HandValue += 1;
+                    }
+                }
+                else
+                {
+                    //Add up the rest of the card types.
+                    HandValue += card.Value;
+                }
+            }
         }
     }
 }

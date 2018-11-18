@@ -32,24 +32,8 @@
 @*Play button*@
 @using (Html.BeginForm("Play", "Home", FormMethod.Post))
 {
-    <input type="checkbox" name="gamestart" checked="checked" hidden>
-    <input type="hidden" name="betamount" value="@Model.Pot">
+    <input type="checkbox" name="started" checked="checked" hidden>
+    <input type="hidden" name="pot" value="@Model.Pot">
     //Draw the game start button
     <button class="btn_start" type="submit">Deal Cards!</button>
 }
-
-
-
-
-
-
-
-
-
-
-@*@foreach(var card in Model.DeckList)
-    {
-        <img src="@card.ImageUrl" width="100" height="100" alt="Playing card"/>
-
-    }*@
-
