@@ -66,8 +66,12 @@ namespace BlackJackProject.Controllers
                 game.checkState();
 
             if (choice == "Stand")
-                game.Dealer.dealersTurn(playingCards.DeckList);
-                game.checkState();
+            {
+
+                    game.Dealer.dealersTurn(playingCards.DeckList);
+                    game.checkState();
+
+            }
 
 
             return View("Play", game);
