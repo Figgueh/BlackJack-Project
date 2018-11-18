@@ -63,7 +63,7 @@ namespace BlackJackProject.Models
 
             //Get the trueCard value
             if ((int)cardType > 10)
-                _value = 10;
+                _value = 10;            
             else
                 _value = (int)cardType;
         }

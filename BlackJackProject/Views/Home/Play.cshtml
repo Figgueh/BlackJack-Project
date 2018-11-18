@@ -17,33 +17,89 @@
 @*Draw the dealers hand*@
 @{
     int d = 0;
-    int dCardValue = 0;
+    int dHandValue = 0;
 }
+
+@*Loop threw each card and get needed values*@
 @foreach (var card in Model.Dealer.Cards)
 {
+    //Pull the name for the style class
     string dealer_card = "dealer_card" + d;
+
+    //Draw each card
     <img class="@dealer_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
-    dCardValue += card.Value;
+
+    //Calculate the total value
+    //Catch the ace.
+    if(card.Value == 1)
+    {
+        //If the player has a total value less than 10
+        if (dHandValue <= 10)
+        {
+            //The ace is worth 11 points
+            dHandValue += 11;
+        }
+        else
+        {
+            //If the player total value is more than 10, its worth 1
+            dHandValue += 1;
+        }
+    }
+    else
+    {
+        //Add up the rest of the cards.
+        dHandValue += card.Value;
+    }
+
+    //Keeps track of the total number of cards in dealers hand
     d++;
 }
 
 @*Draw the label for the dealers value*@
-<label class="dealer_value">Dealer has: @dCardValue</label>
+<label class="dealer_value">Dealer has: @dHandValue</label>
 
 
 @*Draw the players hand*@
 @{
     int p = 0;
-    int pCardValue = 0;
+    int pHandValue = 0;
 }
+
+@*Loop threw each card and get needed values*@
 @foreach (var card in Model.Player.Hand)
 {
+    //Pull the name for the style class
     string player_card = "player_card" + p;
+
+    //Draw each card
     <img class="@player_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
-    pCardValue += card.Value;
+
+    //Calculate the total value
+    //Catch the ace.
+    if (card.Value == 1)
+    {
+        //If the player has a total value less than 10
+        if (pHandValue <= 10)
+        {
+            //The ace is worth 11 points
+            pHandValue += 11;
+        }
+        else
+        {
+            //If the player total value is more than 10, its worth 1
+            pHandValue += 1;
+        }
+    }
+    else
+    {
+        //Add up the rest of the cards.
+        pHandValue += card.Value;
+    }
+
+    //Keeps track of the total number of cards in players hand
     p++;
 }
 
 @*Draw the label for the dealers value*@
-<label class="player_value">Player has: @pCardValue</label>
+<label class="player_value">Player has: @pHandValue</label>
 
