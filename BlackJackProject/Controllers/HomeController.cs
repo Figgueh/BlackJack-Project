@@ -22,9 +22,7 @@ namespace BlackJackProject.Controllers
         public IActionResult continueGame()
         {
             //Clear the game data
-            game.Player.Hand = new List<Card>();
-            game.Dealer.Hand = new List<Card>();
-            game.Winner = "";
+            game.reset();
 
             //new deck
             playingCards = new Deck();
@@ -75,6 +73,9 @@ namespace BlackJackProject.Controllers
         {
             if (choice == "Hit")
                 game.Player.addCardToHand(playingCards.DeckList);
+
+            if (game.Player.HandValue > 21)
+                game.checkState();
           
             if (choice == "Stand")
             {

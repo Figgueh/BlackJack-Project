@@ -54,7 +54,15 @@ namespace BlackJackProject.Models
             //Setup new player and dealer:
             Player = new Player();
             Dealer = new Dealer();
+        }
 
+        public void reset()
+        {
+            Player.Hand = new List<Card>();
+            Player.HandValue = 0;
+            Dealer.Hand = new List<Card>();
+            Dealer.HandValue = 0;
+            Winner = "";
         }
 
 
@@ -73,10 +81,6 @@ namespace BlackJackProject.Models
 
         public void checkState()
         {
-            //Get both hand values
-            Player.getHandValue();
-            Dealer.getHandValue();
-
             //Check who has the bigger number
             if (Player.HandValue > Dealer.HandValue)
             {
@@ -94,21 +98,20 @@ namespace BlackJackProject.Models
             //if the player hits blackjack
             if (Player.HandValue == 21 && Player.Hand.Count == 2)
             {
-                //If the dealer doesnt get blackjack either
-                if(Dealer.HandValue != 21 && Dealer.Hand.Count != 2)
-                {
-                    Winner = Player;
-
-                    //The player wins 1.5x his bet
-                    Pot *= 1.5;
-                }
                 //If the dealer also gets blackjack
-                else if(Dealer.HandValue == 21 && Dealer.Hand.Count == 2)
+                if (Dealer.HandValue == 21 && Dealer.Hand.Count == 2)
                 {
                     Winner = Dealer;
 
                     //pot gets cleared
                     Pot = 0;
+                }
+                else
+                {
+                    Winner = Player;
+
+                    //The player wins 1.5x his bet
+                    Pot *= 1.5;
                 }
             }
 

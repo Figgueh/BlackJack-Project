@@ -59,6 +59,11 @@ body {
     left: 900px;
     top: 100px;
 }
+.dealer_card4 {
+    position: absolute;
+    left: 1000px;
+    top: 100px;
+}
 
 
 .player_card0{
@@ -79,6 +84,11 @@ body {
 .player_card3 {
     position: absolute;
     left: 900px;
+    top: 500px;
+}
+.player_card4 {
+    position: absolute;
+    left: 1000px;
     top: 500px;
 }
 

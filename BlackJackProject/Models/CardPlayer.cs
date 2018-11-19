@@ -49,6 +49,9 @@ namespace BlackJackProject.Models
 
                 //Add it to the list of cards
                 Hand.Add(newcard);
+
+                //Get the new handValue
+                getHandValue();
             }
         }
 
@@ -56,31 +59,20 @@ namespace BlackJackProject.Models
         {
             //reset hand value
             HandValue = 0;
+            bool hasAce = false;
 
             //Get the value of the dealers hand:
             foreach (var card in Hand)
             {
-                //Catch the ace
                 if (card.Value == (int)CardType.Ace)
-                {
-                    //If the player has a total value less than 10
-                    if (HandValue <= 10)
-                    {
-                        //The ace is worth 11 points
-                        HandValue += 11;
-                    }
-                    else
-                    {
-                        //If the player total value is more than 10, its worth 1
-                        HandValue += 1;
-                    }
-                }
-                else
-                {
-                    //Add up the rest of the card types.
-                    HandValue += card.Value;
-                }
+                    hasAce = true;
+                //Add up the rest of the card types.
+                HandValue += card.Value;
             }
+
+            if (HandValue <= 10 && hasAce == true)
+                HandValue += 10;
+
         }
     }
 }
