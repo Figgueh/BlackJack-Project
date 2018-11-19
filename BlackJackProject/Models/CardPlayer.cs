@@ -30,23 +30,26 @@ namespace BlackJackProject.Models
 
         public void addCardToHand(List<Card> deckInPlay)
         {
-            Card newcard;
+            if(HandValue <= 21)
+            {
+                Card newcard;
 
-            //Get the amount of cards in the deck
-            int totalCardsInPlay = deckInPlay.Count();
+                //Get the amount of cards in the deck
+                int totalCardsInPlay = deckInPlay.Count();
 
-            //Get a new random number based on the number of cards we have in play.
-            Random random = new Random();
-            int randomNumber = random.Next(totalCardsInPlay);
+                //Get a new random number based on the number of cards we have in play.
+                Random random = new Random();
+                int randomNumber = random.Next(totalCardsInPlay);
 
-            //Find the card at that number
-            newcard = deckInPlay[randomNumber];
+                //Find the card at that number
+                newcard = deckInPlay[randomNumber];
 
-            //Remove it from the deck
-            deckInPlay.Remove(newcard);
+                //Remove it from the deck
+                deckInPlay.Remove(newcard);
 
-            //Add it to the list of cards
-            Hand.Add(newcard);
+                //Add it to the list of cards
+                Hand.Add(newcard);
+            }
         }
 
         public void getHandValue()

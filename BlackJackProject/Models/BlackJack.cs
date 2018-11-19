@@ -136,6 +136,9 @@ namespace BlackJackProject.Models
                 Player.addAmount(Pot);
             }
 
+            //Clear the pot for the next game
+            Pot = 0;
+
         }
     }
 }

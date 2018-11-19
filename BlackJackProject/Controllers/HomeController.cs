@@ -19,6 +19,19 @@ namespace BlackJackProject.Controllers
             return View(game);
         }
 
+        public IActionResult continueGame()
+        {
+            //Clear the game data
+            game.Player.Hand = new List<Card>();
+            game.Dealer.Hand = new List<Card>();
+            game.Winner = "";
+
+            //new deck
+            playingCards = new Deck();
+
+            return View("Index", game);
+        }
+
         [HttpPost]
         public IActionResult Index(int bet)
         {
@@ -68,8 +81,6 @@ namespace BlackJackProject.Controllers
                 game.Dealer.dealersTurn(playingCards.DeckList);
                 game.checkState();
             }
-
-
 
             return View("Play", game);
         }
