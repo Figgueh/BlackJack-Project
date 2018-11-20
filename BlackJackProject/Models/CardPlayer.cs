@@ -66,12 +66,17 @@ namespace BlackJackProject.Models
             {
                 if (card.Value == (int)CardType.Ace)
                     hasAce = true;
+
                 //Add up the rest of the card types.
                 HandValue += card.Value;
             }
 
-            if (HandValue <= 10 && hasAce == true)
+            //Check if we have a value of 11 or less
+            if (HandValue <= 11 && hasAce == true)
+                //If theres an ace in the hand, then the ace is worth 11
                 HandValue += 10;
+
+            //We only add 10 because we already counted the ace as 1.
 
         }
     }
