@@ -28,7 +28,7 @@ namespace BlackJackProject.Models
             }
         }
 
-        public void addCardToHand(List<Card> deckInPlay)
+        public void addCardToHand(List<Card> deckInPlay, bool visible = true)
         {
             if(HandValue <= 21)
             {
@@ -47,11 +47,17 @@ namespace BlackJackProject.Models
                 //Remove it from the deck
                 deckInPlay.Remove(newcard);
 
-                //Add it to the list of cards
+                //Attach the visibility to the card.
+                if (visible == false && Hand.Count == 0)
+                    newcard.IsVisible = false;
+
+                //Add it to the list of cards in the hand
                 Hand.Add(newcard);
 
                 //Get the new handValue
                 getHandValue();
+
+                
             }
         }
 
@@ -67,8 +73,10 @@ namespace BlackJackProject.Models
                 if (card.Value == (int)CardType.Ace)
                     hasAce = true;
 
-                //Add up the rest of the card types.
-                HandValue += card.Value;
+                //if the card is visible
+                if(card.IsVisible == true)
+                    //Add up the rest of the card types.
+                    HandValue += card.Value;
             }
 
             //Check if we have a value of 11 or less

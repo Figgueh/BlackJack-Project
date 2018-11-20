@@ -60,10 +60,13 @@
 <label class="player_value">Player has: @Model.Player.HandValue</label>
 
 @*Draw the hit and stand button*@
-@using (Html.BeginForm("Action", "Home", FormMethod.Post))
+@if (Model.Winner == "")
 {
-    <input type="submit" name="choice" class="btn_hit" value="Hit" />
-    <input type="submit" name="choice" class="btn_stand" value="Stand" />
+    @using (Html.BeginForm("Action", "Home", FormMethod.Post))
+    {
+        <input type="submit" name="choice" class="btn_hit" value="Hit" />
+        <input type="submit" name="choice" class="btn_stand" value="Stand" />
+    }
 }
 
 
@@ -75,7 +78,7 @@
         <h1>WINNER WINNER, CHICKEN DINNER</h1>
         <button type="submit">Click here to continue!</button>
     }
-    else if(Model.Winner == Model.Dealer)
+    else if (Model.Winner == Model.Dealer)
     {
         <h1>YOU NO LUCKY!</h1>
         <button type="submit">Click here to continue!</button>

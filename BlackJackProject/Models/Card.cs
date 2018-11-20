@@ -10,7 +10,7 @@ namespace BlackJackProject.Models
         private CardType _cardType;
         private Suits _cardSuit;
         private int _value;
-        private string _imageUrl;
+        private bool _isVisible = true;
 
         public int Value
         {
@@ -18,6 +18,14 @@ namespace BlackJackProject.Models
             set
             {
                 _value = value;
+            }
+        }
+        public bool IsVisible
+        {
+            get => _isVisible;
+            set
+            {
+                _isVisible = value;
             }
         }
 
@@ -59,7 +67,6 @@ namespace BlackJackProject.Models
             //assign the values to the card
             _cardType = cardType;
             _cardSuit = suit;
-            _imageUrl = getCardUrl(cardType, suit);
 
             //Get the trueCard value
             if ((int)cardType > 10)
@@ -104,6 +111,9 @@ namespace BlackJackProject.Models
             //Add the extension
             if (!String.IsNullOrEmpty(cardUrl))
                 cardUrl += ".png";
+
+            if (IsVisible == false)
+                cardUrl = "blue_back.png";
 
             return cardUrl;
         }

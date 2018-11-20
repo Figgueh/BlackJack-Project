@@ -53,7 +53,7 @@ namespace BlackJackProject.Controllers
         public IActionResult Play()
         {
             //Give two cards to the dealer.
-            game.Dealer.addCardToHand(playingCards.DeckList);
+            game.Dealer.addCardToHand(playingCards.DeckList, visible: false);
             game.Dealer.addCardToHand(playingCards.DeckList);
 
 
