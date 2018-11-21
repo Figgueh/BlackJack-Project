@@ -83,7 +83,7 @@ namespace BlackJackProject.Models
         public void checkState()
         {
             //Check who has the bigger number
-            if (Player.HandValue > Dealer.HiddenHandValue)
+            if (Player.HandValue > Dealer.HandValue)
             {
                 Winner = Player;
 
@@ -91,7 +91,7 @@ namespace BlackJackProject.Models
                 Pot *= 2;
             }
             //set the winer to be equal to the player so that he gets his money back.
-            else if (Player.HandValue == Dealer.HiddenHandValue)
+            else if (Player.HandValue == Dealer.HandValue)
                 Winner = Player;
             else
                 Winner = Dealer;
@@ -100,7 +100,7 @@ namespace BlackJackProject.Models
             if (Player.HandValue == 21 && Player.Hand.Count == 2)
             {
                 //If the dealer also gets blackjack
-                if (Dealer.HiddenHandValue == 21 && Dealer.Hand.Count == 2)
+                if (Dealer.HandValue == 21 && Dealer.Hand.Count == 2)
                     Winner = Dealer;
                 else
                 {
@@ -117,7 +117,7 @@ namespace BlackJackProject.Models
 
 
             //If the dealer goes over 21
-            if (Dealer.HiddenHandValue > 21)
+            if (Dealer.HandValue > 21)
             {
                 Winner = Player;
 

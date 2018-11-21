@@ -73,10 +73,8 @@ namespace BlackJackProject.Models
                 if (card.Value == (int)CardType.Ace)
                     HasAce = true;
 
-                //if the card is visible
-                if(card.IsVisible == true)
-                    //Add up the rest of the card types.
-                    HandValue += card.Value;
+                //Add up the card types.
+                HandValue += card.Value;
             }
 
             //Check if we have a value of 11 or less

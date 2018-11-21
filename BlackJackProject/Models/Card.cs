@@ -33,6 +33,10 @@ namespace BlackJackProject.Models
         {
             get => getCardUrl(this._cardType, this._cardSuit);
         }
+        public CardType GetCardType
+        {
+            get => this._cardType;
+        }
 
         //List each of the possible card types:
         public enum CardType
