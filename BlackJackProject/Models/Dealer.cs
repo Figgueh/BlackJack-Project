@@ -17,7 +17,7 @@ namespace BlackJackProject.Models
         public void dealersTurn(List<Card> deckInPlay)
         {
             //If the dealer has a total of 17 points or more, he must stand
-            while (HiddenHandValue < 17)
+            while (HandValue + Hand[0].Value < 17)
             {
                 //Add a new card to the hand
                 addCardToHand(deckInPlay);

@@ -27,6 +27,7 @@ namespace BlackJackProject.Models
                 _handValue = value;
             }
         }
+        public bool HasAce = false;
 
         public void addCardToHand(List<Card> deckInPlay, bool visible = true)
         {
@@ -65,13 +66,12 @@ namespace BlackJackProject.Models
         {
             //reset hand value
             HandValue = 0;
-            bool hasAce = false;
 
             //Get the value of the dealers hand:
             foreach (var card in Hand)
             {
                 if (card.Value == (int)CardType.Ace)
-                    hasAce = true;
+                    HasAce = true;
 
                 //if the card is visible
                 if(card.IsVisible == true)
@@ -80,7 +80,7 @@ namespace BlackJackProject.Models
             }
 
             //Check if we have a value of 11 or less
-            if (HandValue <= 11 && hasAce == true)
+            if (HandValue <= 11 && HasAce == true)
                 //If theres an ace in the hand, then the ace is worth 11
                 HandValue += 10;
 

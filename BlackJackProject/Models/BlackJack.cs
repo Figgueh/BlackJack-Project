@@ -63,6 +63,7 @@ namespace BlackJackProject.Models
             Dealer.Hand = new List<Card>();
             Dealer.HandValue = 0;
             Winner = "";
+            Pot = 0;
         }
 
 
@@ -100,12 +101,7 @@ namespace BlackJackProject.Models
             {
                 //If the dealer also gets blackjack
                 if (Dealer.HiddenHandValue == 21 && Dealer.Hand.Count == 2)
-                {
                     Winner = Dealer;
-
-                    //pot gets cleared
-                    Pot = 0;
-                }
                 else
                 {
                     Winner = Player;
@@ -117,12 +113,8 @@ namespace BlackJackProject.Models
 
             //If the player goes over 21
             if (Player.HandValue > 21)
-            {
                 Winner = Dealer;
 
-                //pot gets cleared
-                Pot = 0;
-            }
 
             //If the dealer goes over 21
             if (Dealer.HiddenHandValue > 21)
@@ -138,9 +130,6 @@ namespace BlackJackProject.Models
             {
                 Player.addAmount(Pot);
             }
-
-            //Clear the pot for the next game
-            Pot = 0;
 
             //Show the card
             Dealer.Hand[0].IsVisible = true;
