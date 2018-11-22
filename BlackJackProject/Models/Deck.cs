@@ -8,7 +8,7 @@ namespace BlackJackProject.Models
 {
     public class Deck
     {
-        private const int NUMBER_OF_CARDS = 52;
+
         private List<Card> _DeckList;
 
         public List<Card> DeckList
