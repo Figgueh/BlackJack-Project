@@ -60,8 +60,11 @@ namespace BlackJackProject.Models
         {
             Player.Hand = new List<Card>();
             Player.HandValue = 0;
+            Player.HasAce = false;
             Dealer.Hand = new List<Card>();
             Dealer.HandValue = 0;
+            Dealer.HiddenHandValue = 0;
+            Dealer.HasAce = false;
             Winner = "";
             Pot = 0;
         }
@@ -133,6 +136,7 @@ namespace BlackJackProject.Models
 
             //Show the card
             Dealer.Hand[0].IsVisible = true;
+            
 
         }
     }

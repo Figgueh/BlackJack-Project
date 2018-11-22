@@ -14,8 +14,10 @@ namespace BlackJackProject.Models
         {
             get
             {
-                //If the hidden card is an ace
-                if (Hand[0].GetCardType == CardType.Ace)
+                if (Hand[0].IsVisible == true)
+                    return HandValue;
+               //If the hidden card is an ace
+               else if (Hand[0].GetCardType == CardType.Ace)
                     return _hiddenHandValue = HandValue - Hand[0].Value - 10;
                 else
                     return _hiddenHandValue = HandValue - Hand[0].Value;
@@ -34,9 +36,6 @@ namespace BlackJackProject.Models
                 //Add a new card to the hand
                 addCardToHand(deckInPlay);
             }
-
-            Hand[0].IsVisible = true;
-            HiddenHandValue = HandValue;
         }
     }
 }
