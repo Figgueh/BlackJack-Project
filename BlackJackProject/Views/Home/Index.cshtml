@@ -1,42 +1,59 @@
 ﻿@model BlackJackProject.Models.BlackJack
-
 @{
     ViewData["Title"] = "Table";
 }
-
 @*Draw the playing field*@
 @*Draw the blackjack table*@
-<img src="~/images/blackjack_table.png" class="center-block" />
+@*<img src="~/images/blackjack_table.png" class="center-block" />*@
+<div id="wrapper">
+    <div id="game">
+        <div id="money">
+            @*TODO: Draw the pokerchip buttons*@
+            @*Draw the amount the player has in the bank*@
+            <label class="balance"> Amount left in bank:<span id="balance"> @Model.Player.Balance</span></label>
+            @*Draw the amount on the table*@
+            <label class="pot"> Amount on table:<span id="pot"> @Model.Pot</span></label>
+            @*Draw the holder for the errors*@
+            <label class="errors">@ViewData["error"]</label>
+        </div>
+    </div>
 
-@*TODO: Draw the pokerchip buttons*@
+    @*Betting form*@
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @*Draw the textbox for betting amount*@
+        <button onmousemove="rotateChip100()" name="bet" value="100" class="chip_100" data-toggle="tooltip" title="100$"></button>
+        <button onmousemove="rotateChip25()" name="bet" value="25" class="chip_25" data-toggle="tooltip" title="25$"></button>
+        <button onmousemove="rotateChip10()" name="bet" value="10" class="chip_10" data-toggle="tooltip" title="10$"></button>
+        <button onmousemove="rotateChip5()" name="bet" value="5" class="chip_5" data-toggle="tooltip" title="5$"></button>
 
-@*Draw the amount the player has in the bank*@
-<label class="balance"> Amount left in bank: @Model.Player.Balance </label>
-
-@*Betting form*@
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
-{
-    @*Draw the textbox for betting amount*@
-    <button name="bet" value="100"><img src="~/images/100_chip.png" width="50" height="50" class="chip_100" /></button>
-    <button name="bet" value="25"><img src="~/images/25_chip.png" width="50" height="50" class="chip_25" /></button>
-    <button name="bet" value="10"><img src="~/images/10_chip.png" width="50" height="50" class="chip_10" /></button>
-    <button name="bet" value="5"><img src="~/images/5_chip.png" width="50" height="50" class="chip_5" /></button>
-
-                @*Draw the button to submit the amount*@
-                <button class="add" type="submit">Add to bet!</button>
-                }
-
-                @*Draw the amount on the table*@
-                <label class="pot"> Amount on table: @Model.Pot </label>
-                @*Draw the holder for the errors*@
-                <label class="errors">@ViewData["error"]</label>
+        @*Draw the button to submit the amount*@
+        @*<button class="add" type="submit">Add to bet!</button>*@
+    }
 
 
-                @*Play button*@
-                @using (Html.BeginForm("Play", "Home", FormMethod.Post))
-                {
-                    <input type="checkbox" name="started" checked="checked" hidden>
-                    <input type="hidden" name="pot" value="@Model.Pot">
-                    //Draw the game start button
-                    <button class="btn_start" type="submit">Deal Cards!</button>
-                }
+
+    @*Play button*@
+    @using (Html.BeginForm("Play", "Home", FormMethod.Post))
+    {
+        <input type="checkbox" name="started" checked="checked" hidden>
+        <input type="hidden" name="pot" value="@Model.Pot">
+        //Draw the game start button
+        <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Deal Cards!</button>
+    }
+    @*Play Belts*@
+    <div id="belts">
+        <h1>Place your belts!</h1>
+    </div>
+
+    @*SORRY*@
+    <div id="sorry">
+        <h2>You don't have enough money!</h2>
+    </div>
+
+    @*If did Belt*@
+    <div id="th">
+        <h2>Thank You!</h2>
+    </div>
+
+</div>

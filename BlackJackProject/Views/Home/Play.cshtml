@@ -1,88 +1,96 @@
 ﻿@model BlackJackProject.Models.BlackJack
 
-
 @{
     ViewData["Title"] = "Play";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @*Draw the blackjack table*@
-<img src="~/images/blackjack_table.png" class="center-block" />
+@*<img src="~/images/tablenew.png" class="center-block" />*@
+<div id="wrapper">
+    <div id="game">
+        <div id="money">
+            @*Draw the amount on the table*@
+            <label class="potPlay"> Amount on table:<span id="pot"> @Model.Pot</span></label>
+        </div>
+    </div>
 
 
-@*Draw the amount on the table*@
-<label class="pot"> Amount on table: @Model.Pot </label>
+    <div class="dealer">
+        @*Draw the dealers hand*@
+        @{
+            int d = 0;
+            Model.Dealer.getHandValue();
+        }
+        @*Loop threw each card and get needed values*@
+        @foreach (var card in Model.Dealer.Hand)
+        {
+            //Pull the name for the style class
+            string dealer_card = "dealer_card" + d;
+
+            //Draw each card
+            <img class="@dealer_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
+
+            //Keeps track of the total number of cards in dealers hand
+            d++;
+        }
+    </div>
 
 
-@*Draw the dealers hand*@
-@{
-    int d = 0;
-    Model.Dealer.getHandValue();
-}
+    <div class="player">
+        @*Draw the players hand*@
+        @{
+            int p = 0;
+            Model.Player.getHandValue();
+        }
+        @*Loop threw each card and get needed values*@
+        @foreach (var card in Model.Player.Hand)
+        {
+            //Pull the name for the style class
+            string player_card = "player_card" + p;
 
-@*Loop threw each card and get needed values*@
-@foreach (var card in Model.Dealer.Hand)
-{
-    //Pull the name for the style class
-    string dealer_card = "dealer_card" + d;
+            //Draw each card
+            <img class="@player_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
 
-    //Draw each card
-    <img class="@dealer_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
+            //Keeps track of the total number of cards in players hand
+            p++;
+        }
 
-    //Keeps track of the total number of cards in dealers hand
-    d++;
-}
+    </div>
 
-@*Draw the label for the dealers value*@
-<label class="dealer_value">Dealer has: @Model.Dealer.HiddenHandValue</label>
-
-
-@*Draw the players hand*@
-@{
-    int p = 0;
-    Model.Player.getHandValue();
-}
-
-@*Loop threw each card and get needed values*@
-@foreach (var card in Model.Player.Hand)
-{
-    //Pull the name for the style class
-    string player_card = "player_card" + p;
-
-    //Draw each card
-    <img class="@player_card" src="~/images/PlayingCards/@card.ImageUrl" width="150" height="150" alt="@card.Value Playing card" />
-
-    //Keeps track of the total number of cards in players hand
-    p++;
-}
-
-@*Draw the label for the dealers value*@
-<label class="player_value">Player has: @Model.Player.HandValue</label>
-
-@*Draw the hit and stand button*@
-@if (Model.Winner == "")
-{
-    @using (Html.BeginForm("Action", "Home", FormMethod.Post))
+    @*Draw the hit and stand button*@
+    @if (Model.Winner == "")
     {
-        <input type="submit" name="choice" class="btn_hit" value="Hit" />
-        <input type="submit" name="choice" class="btn_stand" value="Stand" />
+        @using (Html.BeginForm("Action", "Home", FormMethod.Post))
+        {
+            <input type="submit" name="choice" class=" btn btn-info btn-lg btn_hit" value="Hit" data-toggle="tooltip" title="HIT" />
+            <input type="submit" name="choice" class="btn btn-warning btn-lg btn_stand" value="Stand" data-toggle="tooltip" title="STAND" />
+        }
     }
-}
 
 
-@*Once the game is finished show the continue btns*@
-@using (Html.BeginForm("continueGame", "Home", FormMethod.Post))
-{
-    @if (Model.Winner == Model.Player)
+    @*Once the game is finished show the continue btns*@
+    @using (Html.BeginForm("continueGame", "Home", FormMethod.Post))
     {
-        <h1>WINNER WINNER, CHICKEN DINNER</h1>
-        <button type="submit">Click here to continue!</button>
+        @if (Model.Winner == Model.Player)
+        {
+
+            <h1 id="win" class="text-capitalize text-success">WINNER WINNER, CHICKEN DINNER</h1>
+            <button id="newGame" class="btn btn-default btn-lg" type="submit" data-toggle="tooltip" title="Continue the Game!">Click here to continue!</button>
+        }
+        else if (Model.Winner == Model.Dealer)
+        {
+            <h1 id="bad" class=" text-capitalize text-danger">YOU NO LUCKY!</h1>
+            <button id="newGameBad" class="btn btn-default btn-lg" type="submit" data-toggle="tooltip" title="Continue the Game!">Click here to continue!</button>
+        }
     }
-    else if (Model.Winner == Model.Dealer)
-    {
-        <h1>YOU NO LUCKY!</h1>
-        <button type="submit">Click here to continue!</button>
-    }
-}
+
+    <div class="dealerPlayer">
+        @*Draw the label for the dealers value*@
+        <label class="dealer_value">Dealer has:<span id="dealhv"> @Model.Dealer.HandValue</span> </label>
+
+        @*Draw the label for the dealers value*@
+        <label class="player_value">Player has:<span id="playerhv"> @Model.Player.HandValue</span></label>
+    </div>
 
 
+</div>

@@ -1,16 +1,69 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: cadetblue;
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
+    background-color: black;
+    margin: 0;
+    padding: 0;
 }
 
-.balance{
-    position: absolute;
-    left: 200px;
-    top: 280px;
-    color: floralwhite;
+#wrapper {
+    margin: 0 auto;
+    width: 1280px;
+}
+
+#game {
+    background: transparent url('../images/tablenew.png')0 0 no-repeat;
+    color: #333;
+    font: 14px/17px Helvetica, Arial, Verdana, sans-serif;
+    height: 704px;
+    margin: 0 auto;
+    position: relative;
+    width: 1280px;
+}
+
+#belts h1 {
+    background-color: #10400F;
+    color: whitesmoke;
+    position: relative;
+    display: none;
+    bottom: 608px;
+    left: 433px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
+}
+
+#sorry h2 {
+    background-color: #10400F;
+    color: whitesmoke;
+    position: relative;
+    display: none;
+    bottom: 610px;
+    left: 342px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+#th h2 {
+    color: yellow;
+    position: relative;
+    display: none;
+    bottom: 734px;
+    left: 66px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
 }
 
 .bet {
@@ -19,158 +72,273 @@ body {
     top: 300px;
 }
 
-.pot {
+#money,
+#money:before {
+    border-radius: 5px;
+    bottom: 0;
+    height: 93px;
+    padding: 7px;
     position: absolute;
-    left: 200px;
-    top: 325px;
-    color: floralwhite;
+    right: 0;
+    width: 280px;
+}
+
+#money {
+    border: 2px solid #FFC926;
+    background: #333;
+    content: '';
+    opacity: 0.8;
+}
+
+.balance,
+.pot {
+    color: #FFF;
+    font: 700 22px/20px Helvetica, Arial, Verdana, sans-serif;
+    margin: 6px 0;
+    position: relative;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
+}
+
+#balance,
+#pot {
+    color: yellow;
+    font-weight: 700;
+}
+
+.potPlay {
+    color: #FFF;
+    font: 700 22px/20px Helvetica, Arial, Verdana, sans-serif;
+    margin: 22px 0;
+    position: relative;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
 }
 
 .errors {
-    position: absolute;
-    left: 200px;
-    top: 350px;
-    color: indianred;
+    position: relative;
+    right: 980px;
+    bottom: 612px;
+    color: yellow;
+    font: 700 24px/26px Helvetica, Arial, Verdana, sans-serif;
+    text-shadow: 1px 1px #000;
+    z-index: 1;
 }
 
-.btn_start{
-    position:absolute;
-    left: 700px;
-    top: 400px;
+.player,
+.dealer,
+.dealerPlayer {
+    display: inline-block;
 }
 
-.dealer_card0{
-    position:absolute;
-    left: 600px;
-    top: 100px;
+.btn_start {
+    position: relative;
+    left: 580px;
+    bottom: 144px;
 }
+
+.dealer_card0 {
+    position: relative;
+    left: 547px;
+    bottom: 553px;
+}
+
 .dealer_card1 {
-    position: absolute;
-    left: 700px;
-    top: 100px;
+    position: relative;
+    left: 500px;
+    bottom: 553px;
 }
+
 .dealer_card2 {
-    position: absolute;
-    left: 800px;
-    top: 100px;
+    position: relative;
+    left: 453px;
+    bottom: 553px;
 }
+
 .dealer_card3 {
-    position: absolute;
-    left: 900px;
-    top: 100px;
+    position: relative;
+    left: 406px;
+    bottom: 553px;
 }
+
 .dealer_card4 {
-    position: absolute;
-    left: 1000px;
-    top: 100px;
-}
-.dealer_card5 {
-    position: absolute;
-    left: 1100px;
-    top: 100px;
-}
-.dealer_card6 {
-    position: absolute;
-    left: 1200px;
-    top: 100px;
+    position: relative;
+    left: 359px;
+    bottom: 553px;
 }
 
 
-.player_card0{
-    position: absolute;
-    left: 600px;
-    top: 500px;
+.player_card0 {
+    position: relative;
+    left: 70px;
+    bottom: 261px;
 }
+
 .player_card1 {
-    position: absolute;
-    left: 700px;
-    top: 500px;
+    position: relative;
+    left: 16px;
+    bottom: 261px;
 }
+
 .player_card2 {
-    position: absolute;
-    left: 800px;
-    top: 500px;
+    position: relative;
+    right: 40px;
+    bottom: 261px;
 }
+
 .player_card3 {
-    position: absolute;
-    left: 900px;
-    top: 500px;
+    position: relative;
+    right: 110px;
+    bottom: 261px;
 }
+
 .player_card4 {
-    position: absolute;
-    left: 1000px;
-    top: 500px;
+    position: relative;
+    right: 180px;
+    bottom: 261px;
 }
-.player_card5 {
-    position: absolute;
-    left: 1100px;
-    top: 500px;
-}
-.player_card6 {
-    position: absolute;
-    left: 1200px;
-    top: 500px;
-}
+
+
 
 .dealer_value {
-    position: absolute;
-    left: 900px;
-    top: 325px;
+    position: relative;
+    left: 40px;
+    bottom: 838px;
     color: floralwhite;
-    padding: 5px;
+    padding: 12px;
     background-color: black;
-    border: 2px solid white;
-    border-radius: 5px 5px;
+    border: 1px solid yellow;
+    font-size: large;
+    border-radius: 5px;
 }
+
 .player_value {
-    position: absolute;
-    left: 900px;
-    top: 375px;
+    position: relative;
+    right: 116px;
+    bottom: 774px;
     color: floralwhite;
-    padding: 5px;
+    padding: 12px;
     background-color: black;
-    border: 2px solid white;
-    border-radius: 5px 5px;
+    border: 1px solid yellow;
+    font-size: large;
+    border-radius: 5px;
+}
+
+span#dealhv,
+span#playerhv {
+    color: darkorange;
+    font-size: larger;
 }
 
 .add {
-    position: absolute;
+    position: relative;
     left: 390px;
     top: 300px;
+    display: none;
 }
 
-.btn_hit{
-    position:absolute;
-    left: 500px;
-    top: 400px;
+#win {
+    position: relative;
+    text-align: center;
+    bottom: 149px;
+    left: 650px;
+    display: inline-block;
+}
+
+#bad {
+    position: relative;
+    text-align: center;
+    bottom: 149px;
+    left: 997px;
+    display: inline-block;
+}
+
+#newGame {
+    position: relative;
+    text-align: center;
+    bottom: 234px;
+    right: 96px;
+}
+
+#newGameBad {
+    position: relative;
+    text-align: center;
+    bottom: 234px;
+    left: 251px;
+}
+
+.btn_hit {
+    position: relative;
+    left: 556px;
+    bottom: 211px;
 }
 
 .btn_stand {
-    position: absolute;
-    left: 550px;
-    top: 400px;
+    position: relative;
+    left: 603px;
+    bottom: 211px;
 }
 
-.chip_100{
-    position: absolute;
-    left: 250px;
-    top: 430px;
+.chip_100 {
+    background-image: url('../images/100_chip.png');
+    background-size: 100%;
+    background-color: darkgreen;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left: 101px;
+    top: -353px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
 }
 
 .chip_25 {
-    position: absolute;
-    left: 300px;
-    top: 460px;
+    background-image: url('../images/25_chip.png');
+    background-size: 100%;
+    background-color: darkgreen;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    left: 257px;
+    top: -261px;
+    border: none;
+    outline: none;
 }
 
 .chip_10 {
-    position: absolute;
-    left: 350px;
-    top: 490px;
+    background-image: url('../images/10_chip.png');
+    background-size: 100%;
+    background-color: darkgreen;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    left: 433px;
+    top: -235px;
+    border: none;
+    outline: none;
 }
 
 .chip_5 {
-    position: absolute;
-    left: 400px;
-    top: 520px;
+    background-image: url('../images/5_chip.png');
+    background-size: 100%;
+    background-color: darkgreen;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 81px;
+    height: 81px;
+    border-radius: 100px;
+    left: 594px;
+    top: -260px;
+    border: none;
+    outline: none;
 }
