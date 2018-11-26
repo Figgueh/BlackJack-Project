@@ -61,6 +61,10 @@ namespace BlackJackProject
                 routes.MapRoute(
                     name: "choice",
                     template: "{controller=Home}/{action=Play}/{choice}");
+
+                routes.MapRoute(
+                    name: "operation",
+                    template: "{controller=Home}/{action=Index}/{operation}");
             });
         }
     }

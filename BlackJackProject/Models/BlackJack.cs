@@ -5,14 +5,28 @@ using System.Threading.Tasks;
 
 namespace BlackJackProject.Models
 {
+    public enum Operations
+    {
+        addition,
+        subtraction
+    }
+
     public class BlackJack
     {
+        private Operations _operation;
         private double _pot;
         Player _player;
         Dealer _dealer;
         private object _winner = "";
 
-
+        public Operations Operation
+        {
+            get => _operation;
+            set
+            {
+                _operation = value;
+            }
+        }
         public double Pot
         {
             get => _pot;
@@ -72,18 +86,30 @@ namespace BlackJackProject.Models
 
         public void checkBet(int bet)
         {
-            if (Player.Balance >= bet)
+            if(Operation == Operations.addition)
             {
-                //Remove the amount from the balance.
-                Player.removeAmount(bet);
+                if (Player.Balance >= bet)
+                {
+                    //Remove the amount from the balance.
+                    Player.removeAmount(bet);
 
-                //Place the bet on the table.
-                Pot += bet;
+                    //Place the bet on the table.
+                    Pot += bet;
 
+                }
             }
+            else
+            {
+                //Add the amount back to the players hand
+                Player.addAmount(bet);
 
-
+                //Remove the amount from the table
+                Pot -= bet;
+            }
+            
         }
+
+
 
         public void checkState()
         {

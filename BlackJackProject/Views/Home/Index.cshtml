@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    @*Betting form*@ 
+    @*Betting form*@
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
         @*Draw the textbox for betting amount*@
@@ -26,6 +26,10 @@
         <button onmousemove="rotateChip25()" name="bet" value="25" class="chip_25" data-toggle="tooltip" title="25$"></button>
         <button onmousemove="rotateChip10()" name="bet" value="10" class="chip_10" data-toggle="tooltip" title="10$"></button>
         <button onmousemove="rotateChip5()" name="bet" value="5" class="chip_5" data-toggle="tooltip" title="5$"></button>
+
+        <input type="checkbox" hidden="hidden" id="operation" name="operation" checked="checked" />
+
+        Html.HiddenFor(m => m.Operation);
 
         @*Draw the button to submit the amount*@
         @*<button class="add" type="submit">Add to bet!</button>*@
@@ -42,7 +46,7 @@
             <input type="hidden" name="pot" value="@Model.Pot">
             //Draw the game start button
             <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Deal Cards!</button>
-        } 
+        }
     }
     else
     {
@@ -51,13 +55,18 @@
             <input type="checkbox" name="started" checked="checked" hidden>
             <input type="hidden" name="pot" value="@Model.Pot">
             //Draw the game start button
-            <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Bet for Deal!</button>
-        } 
+            <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Deal cards!</button>
+        }
     }
+
+    @*Remove from pot toggle*@
+    <button class="btn btn-info btn-lg" id="btn_remove" data-toggle="tooltip" title="Back to player balance" onclick="changeOperation()">Remove from pot!</button>
+
     @*Play Belts*@
-    <div id="belts" style="height: 30px;">
-        <h1>Place your belts!</h1>
+    <div id="belts">
+        <h1 id="headerText">Place your bets!</h1>
     </div>
+
 
     @*SORRY*@
     <div id="sorry">

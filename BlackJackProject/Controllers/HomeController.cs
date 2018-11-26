@@ -31,8 +31,14 @@ namespace BlackJackProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int bet)
+        public IActionResult Index(int bet, bool operation)
         {
+
+            if (operation == true)
+                game.Operation = Operations.addition;
+            else
+                game.Operation = Operations.subtraction;
+            
             //Apply the bet rules
             if (game.Player.Balance > 0)
             {
@@ -40,6 +46,8 @@ namespace BlackJackProject.Controllers
                 {
                     ViewData["error"] = "Insufficient Funds!";
                 }
+
+
                 game.checkBet(bet);
             }
             else

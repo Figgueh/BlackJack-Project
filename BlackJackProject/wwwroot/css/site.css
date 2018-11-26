@@ -23,7 +23,7 @@ body {
     width: 1280px;
 }
 
-#belts h1 {
+#belts h1, remove_bet h1 {
     background-color: #10400F;
     color: whitesmoke;
     position: relative;
@@ -104,6 +104,12 @@ body {
 #pot {
     color: yellow;
     font-weight: 700;
+}
+
+#btn_remove{
+    position: relative;
+    left: 1100px;
+    bottom: 300px;
 }
 
 .potPlay {

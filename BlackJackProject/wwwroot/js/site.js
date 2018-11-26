@@ -112,6 +112,28 @@ function startRotate() {
     }
 }
 
+function changeOperation() {
+    var headerText = document.getElementById("headerText");
+    var hiddenCheckBox = document.getElementById("operation");
+
+    //alert(hiddenCheckBox);
+
+    if (hiddenCheckBox.checked === true) {
+        hiddenCheckBox.checked = false;
+    }
+    else if (hiddenCheckBox.checked === false) {
+        hiddenCheckBox.checked = true;
+    }
+
+    //Changing the text of the header
+    if (hiddenCheckBox.checked === true) {
+        headerText.innerHTML = "Remove from bet!";
+    } else {
+        headerText.innerHTML = "Place your bets!";
+    }
+
+}
+
 //FIREWROKS
 var SCREEN_WIDTH = window.innerWidth,
     SCREEN_HEIGHT = window.innerHeight,
