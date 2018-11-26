@@ -12,7 +12,6 @@ namespace BlackJackProject.Controllers
     public class HomeController : Controller
     {
         static BlackJack game = new BlackJack();
-        static Deck playingCards = new Deck();
 
         public IActionResult Index()
         {
@@ -24,9 +23,6 @@ namespace BlackJackProject.Controllers
             //Clear the game data
             game.reset();
 
-            //new deck
-            playingCards = new Deck();
-
             return View("Index", game);
         }
 
@@ -34,7 +30,7 @@ namespace BlackJackProject.Controllers
         public IActionResult Index(int bet, bool operation)
         {
 
-            if (operation == true)
+            if (operation == false)
                 game.Operation = Operations.addition;
             else
                 game.Operation = Operations.subtraction;
@@ -53,7 +49,7 @@ namespace BlackJackProject.Controllers
             else
                 ViewData["error"] = "You dont have anything else to bet!";
 
-            //Send the amount to bet to the view?
+            //Send the amount to bet to the view
             return View(game);
         }
 
@@ -61,13 +57,10 @@ namespace BlackJackProject.Controllers
         public IActionResult Play()
         {
             //Give two cards to the dealer.
-            game.Dealer.addCardToHand(playingCards.DeckList, visible: false);
-            game.Dealer.addCardToHand(playingCards.DeckList);
-
+            game.Dealer.startDealer();
 
             //Give two cards to the player.
-            game.Player.addCardToHand(playingCards.DeckList);
-            game.Player.addCardToHand(playingCards.DeckList);
+            game.Player.startPlayer();
 
             //Check to see if anyone got blackjack
             if(game.Player.HandValue == 21 || game.Dealer.HandValue == 21)
@@ -80,14 +73,14 @@ namespace BlackJackProject.Controllers
         public IActionResult Action(string choice)
         {
             if (choice == "Hit")
-                game.Player.addCardToHand(playingCards.DeckList);
+                game.Player.addCardToHand();
 
             if (game.Player.HandValue > 21)
                 game.checkState();
           
             if (choice == "Stand")
             {
-                game.Dealer.dealersTurn(playingCards.DeckList);
+                game.Dealer.dealersTurn();
                 game.checkState();
             }
 

@@ -13,7 +13,7 @@ namespace BlackJackProject.Models
 
     public class BlackJack
     {
-        private Operations _operation;
+        private Operations _operation = Operations.addition;
         private double _pot;
         Player _player;
         Dealer _dealer;
@@ -165,6 +165,7 @@ namespace BlackJackProject.Models
 
             //Show the card
             Dealer.Hand[0].IsVisible = true;
+            //Set the pot to 0 once its been handled.
             Pot = 0; 
 
         }

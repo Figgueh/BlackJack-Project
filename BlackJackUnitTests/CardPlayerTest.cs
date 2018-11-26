@@ -25,7 +25,7 @@ namespace BlackJackUnitTests
             //Test the number of cards on hand
             Assert.AreEqual(0, cardPlayer.HandValue);
 
-            cardPlayer.addCardToHand(deck);
+            cardPlayer.addCardToHand();
 
             // Test the number of cards after play
             Assert.AreEqual(2, deck.Count);

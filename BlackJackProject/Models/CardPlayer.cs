@@ -9,7 +9,9 @@ namespace BlackJackProject.Models
     public class CardPlayer
     {
         private List<Card> _hand = new List<Card>();
+        private static Deck _playingCards = new Deck();
         private int _handValue;
+        
 
         public List<Card> Hand
         {
@@ -17,6 +19,14 @@ namespace BlackJackProject.Models
             set
             {
                 _hand = value;
+            }
+        }
+        public Deck PlayingCards
+        {
+            get => _playingCards;
+            set
+            {
+                _playingCards = value;
             }
         }
         public int HandValue
@@ -29,24 +39,29 @@ namespace BlackJackProject.Models
         }
         public bool HasAce = false;
 
-        public void addCardToHand(List<Card> deckInPlay, bool visible = true)
+        public void addCardToHand(bool visible = true)
         {
+            //If the deck runs out of cards
+            if (PlayingCards.DeckList.Count == 0)
+                //Rebuild the deck
+                PlayingCards.Builddeck();
+
             if(HandValue <= 21)
             {
                 Card newcard;
 
                 //Get the amount of cards in the deck
-                int totalCardsInPlay = deckInPlay.Count();
+                int totalCardsInPlay = PlayingCards.DeckList.Count();
 
                 //Get a new random number based on the number of cards we have in play.
                 Random random = new Random();
                 int randomNumber = random.Next(totalCardsInPlay);
 
                 //Find the card at that number
-                newcard = deckInPlay[randomNumber];
+                newcard = PlayingCards.DeckList[randomNumber];
 
                 //Remove it from the deck
-                deckInPlay.Remove(newcard);
+                PlayingCards.DeckList.Remove(newcard);
 
                 //Attach the visibility to the card.
                 if (visible == false && Hand.Count == 0)

@@ -28,13 +28,20 @@ namespace BlackJackProject.Models
             }
         }
 
-        public void dealersTurn(List<Card> deckInPlay)
+        public void startDealer()
+        {
+            //Give two cards to the dealer.
+            addCardToHand(visible: false);
+            addCardToHand();
+        }
+
+        public void dealersTurn()
         {
             //If the dealer has a total of 17 points or more, he must stand
             while (HandValue < 17)
             {
                 //Add a new card to the hand
-                addCardToHand(deckInPlay);
+                addCardToHand();
             }
         }
     }

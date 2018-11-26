@@ -29,5 +29,12 @@ namespace BlackJackProject.Models
             //Remove the amount from the balance.
             Balance -= amount;
         }
+
+        public void startPlayer()
+        {
+            //Give two cards to the player.
+            addCardToHand();
+            addCardToHand();
+        }
     }
 }
