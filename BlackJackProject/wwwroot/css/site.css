@@ -288,6 +288,27 @@ span#playerhv {
     bottom: 211px;
 }
 
+button#btn_remove {
+    background-image: url('../images/Remove_chip.png');
+    background-size: 100%;
+    background-color: darkgreen;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 90px;
+    height: 90px;
+    left: 1074px;
+    bottom: 468px;
+    border-radius: 100px;
+    border: 4px solid darkgreen;
+    outline: none;
+}
+
+span#txt_rem {
+   
+    text-align: justify;
+}
+
 .chip_100 {
     background-image: url('../images/100_chip.png');
     background-size: 100%;
@@ -346,8 +367,8 @@ span#playerhv {
     width: 81px;
     height: 81px;
     border-radius: 100px;
-    left: 595px;
-    top: -241px;
+    left: 593px;
+    top: -242px;
     border: none;
     outline: none;
 }
