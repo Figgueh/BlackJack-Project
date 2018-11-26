@@ -28,7 +28,7 @@ body {
     color: whitesmoke;
     position: relative;
     display: none;
-    bottom: 635px;
+    bottom: 679px;
     left: 433px;
     font-weight: 700;
     text-transform: uppercase;
@@ -42,7 +42,7 @@ body {
     color: whitesmoke;
     position: relative;
     display: none;
-    bottom: 635px;
+    bottom: 679px;
     left: 342px;
     font-weight: 700;
     text-transform: uppercase;
@@ -136,6 +136,7 @@ body {
 .dealerPlayer {
     display: inline-block;
 }
+
 
 .btn_start {
     position: relative;
