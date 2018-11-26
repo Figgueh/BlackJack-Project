@@ -23,7 +23,7 @@ body {
     width: 1280px;
 }
 
-#belts h1, remove_bet h1 {
+#belts h1 {
     background-color: #10400F;
     color: whitesmoke;
     position: relative;
@@ -264,6 +264,7 @@ span#playerhv {
     text-align: center;
     bottom: 234px;
     right: 96px;
+    z-index: 3;
 }
 
 #newGameBad {
@@ -347,4 +348,12 @@ span#playerhv {
     top: -241px;
     border: none;
     outline: none;
+}
+
+canvas{
+    position:absolute;
+    z-index: 2;
+    opacity: 0.8;
+    left: 0px;
+    top: 0px;
 }
