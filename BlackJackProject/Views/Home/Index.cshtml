@@ -34,16 +34,29 @@
 
 
     @*Play button*@
-    @using (Html.BeginForm("Play", "Home", FormMethod.Post))
+    @if (@Model.Pot > 0)
     {
-        <input type="checkbox" name="started" checked="checked" hidden>
-        <input type="hidden" name="pot" value="@Model.Pot">
-        //Draw the game start button
-        <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Deal Cards!</button>
+        @using (Html.BeginForm("Play", "Home", FormMethod.Post))
+        {
+            <input type="checkbox" name="started" checked="checked" hidden>
+            <input type="hidden" name="pot" value="@Model.Pot">
+            //Draw the game start button
+            <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Deal Cards!</button>
+        } 
+    }
+    else
+    {
+        @using (Html.BeginForm("", "Home", FormMethod.Post))
+        {
+            <input type="checkbox" name="started" checked="checked" hidden>
+            <input type="hidden" name="pot" value="@Model.Pot">
+            //Draw the game start button
+            <button class="btn btn-success btn-lg btn_start" data-toggle="tooltip" title="Start the Game" type="submit">Bet for Deal!</button>
+        } 
     }
     @*Play Belts*@
-    <div id="belts">
-        <h1>Place your bets!!</h1>
+    <div id="belts" style="height: 30px;">
+        <h1>Place your belts!</h1>
     </div>
 
     @*SORRY*@
