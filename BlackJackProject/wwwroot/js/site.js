@@ -9,6 +9,8 @@ $(document).ready(function () {
 });
 
 
+
+
 $(document).ready(function () {
     var textError = $(".errors").text();
 

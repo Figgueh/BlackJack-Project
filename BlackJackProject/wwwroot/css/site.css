@@ -28,7 +28,7 @@ body {
     color: whitesmoke;
     position: relative;
     display: none;
-    bottom: 590px;
+    bottom: 635px;
     left: 433px;
     font-weight: 700;
     text-transform: uppercase;
@@ -42,7 +42,7 @@ body {
     color: whitesmoke;
     position: relative;
     display: none;
-    bottom: 610px;
+    bottom: 635px;
     left: 342px;
     font-weight: 700;
     text-transform: uppercase;
@@ -57,7 +57,7 @@ body {
     color: yellow;
     position: relative;
     display: none;
-    bottom: 734px;
+    bottom: 635px;
     left: 66px;
     font-weight: 700;
     text-transform: uppercase;
@@ -246,16 +246,18 @@ span#playerhv {
 #win {
     position: relative;
     text-align: center;
-    bottom: 149px;
-    left: 650px;
+    bottom: 650px;
+    left: 400px;
+    z-index: 2;
     display: inline-block;
+    color: darkcyan;
 }
 
 #bad {
     position: relative;
     text-align: center;
     bottom: 149px;
-    left: 997px;
+    left: 950px;
     display: inline-block;
 }
 
