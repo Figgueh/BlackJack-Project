@@ -72,15 +72,9 @@ namespace BlackJackProject.Models
 
         public void reset()
         {
-            Player.Hand = new List<Card>();
-            Player.HandValue = 0;
-            Player.HasAce = false;
-            Dealer.Hand = new List<Card>();
-            Dealer.HandValue = 0;
-            Dealer.HiddenHandValue = 0;
-            Dealer.HasAce = false;
+            Player.reset();
+            Dealer.reset();
             Winner = "";
-            Pot = 0;
         }
 
 

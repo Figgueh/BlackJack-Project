@@ -100,5 +100,12 @@ namespace BlackJackProject.Models
             //We only add 10 because we already counted the ace as 1.
 
         }
+
+        public void reset()
+        {
+            Hand = new List<Card>();
+            HandValue = 0;
+            HasAce = false;
+        }
     }
 }
