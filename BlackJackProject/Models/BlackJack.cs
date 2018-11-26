@@ -136,7 +136,7 @@ namespace BlackJackProject.Models
                     Winner = Player;
 
                     //The player wins 1.5x his bet
-                    Pot *= 1.5;
+                    Pot = ((Pot / 2) * 1.5) + (Pot / 2);
                 }
             }
 
