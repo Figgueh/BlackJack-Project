@@ -139,7 +139,7 @@ namespace BlackJackProject.Models
 
             //Show the card
             Dealer.Hand[0].IsVisible = true;
-            Pot = 0;
+            Pot = 0; 
 
         }
     }
