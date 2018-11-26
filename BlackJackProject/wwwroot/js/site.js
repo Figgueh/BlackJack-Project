@@ -83,24 +83,24 @@ var x, y, n = 0, rotINT;
 function rotateChip100() {
     x = document.querySelector(".chip_100");
     clearInterval(rotINT);
-    rotINT = setInterval("startRotate()", 10);
+    rotINT = setInterval("startRotate()", 5);
 }
 function rotateChip25() {
     x = document.querySelector(".chip_25");
     clearInterval(rotINT);
-    rotINT = setInterval("startRotate()", 10);
+    rotINT = setInterval("startRotate()", 5);
 }
 
 function rotateChip10() {
     x = document.querySelector(".chip_10");
     clearInterval(rotINT);
-    rotINT = setInterval("startRotate()", 10);
+    rotINT = setInterval("startRotate()", 5);
 }
 
 function rotateChip5() {
     x = document.querySelector(".chip_5");
     clearInterval(rotINT);
-    rotINT = setInterval("startRotate()", 10);
+    rotINT = setInterval("startRotate()", 5);
 }
 function startRotate() {
     n = n + 1;
@@ -108,7 +108,7 @@ function startRotate() {
     x.style.webkitTransform = "rotate(" + n + "deg)";
     x.style.OTransform = "rotate(" + n + "deg)";
     x.style.MozTransform = "rotate(" + n + "deg)";
-    if (n == 180 || n == 360) {
+    if (n == 360) {
         clearInterval(rotINT);
         if (n == 360) { n = 0 }
     }
