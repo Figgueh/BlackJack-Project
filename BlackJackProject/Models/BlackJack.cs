@@ -78,7 +78,7 @@ namespace BlackJackProject.Models
         }
 
 
-        public void checkBet(int bet)
+        public void checkBet(double bet)
         {
             if(Operation == Operations.addition)
             {
@@ -94,11 +94,15 @@ namespace BlackJackProject.Models
             }
             else
             {
-                //Add the amount back to the players hand
-                Player.addAmount(bet);
+                if(Pot >= bet)
+                {
+                    //Add the amount back to the players hand
+                    Player.addAmount(bet);
 
-                //Remove the amount from the table
-                Pot -= bet;
+                    //Remove the amount from the table
+                    Pot -= bet;
+                }
+                
             }
             
         }

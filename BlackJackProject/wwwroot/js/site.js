@@ -129,9 +129,9 @@ function changeOperation() {
 
     //Changing the text of the header
     if (hiddenCheckBox.checked === true) {
-        headerText.innerHTML = "Remove from bet!";
-    } else {
         headerText.innerHTML = "Place your bets!";
+    } else {
+        headerText.innerHTML = "Remove from bet!";
     }
 
 }

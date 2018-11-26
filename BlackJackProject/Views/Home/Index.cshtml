@@ -22,6 +22,7 @@
         @*Betting form*@
         @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
+            
             @*Draw the textbox for betting amount*@
             <button onmousemove="rotateChip100()" name="bet" value="100" class="chip_100" data-toggle="tooltip" title="100$"></button>
             <button onmousemove="rotateChip25()" name="bet" value="25" class="chip_25" data-toggle="tooltip" title="25$"></button>
@@ -29,6 +30,8 @@
             <button onmousemove="rotateChip5()" name="bet" value="5" class="chip_5" data-toggle="tooltip" title="5$"></button>
 
             <input type="checkbox" hidden="hidden" id="operation" name="operation" checked="checked" />
+            
+
 
             @*Draw the button to submit the amount*@
             @*<button class="add" type="submit">Add to bet!</button>*@

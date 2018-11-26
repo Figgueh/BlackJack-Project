@@ -27,14 +27,18 @@ namespace BlackJackProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int bet, bool operation)
+        public IActionResult Index(IFormCollection form)
         {
+            var operation = form["operation"];
+            double bet = Convert.ToDouble(form["bet"]);
 
-            if (operation == false)
+            //catch the form operation variable and convert it to bool
+            if (operation == "on")
                 game.Operation = Operations.addition;
             else
                 game.Operation = Operations.subtraction;
-            
+
+
             //Apply the bet rules
             if (game.Player.Balance > 0)
             {
