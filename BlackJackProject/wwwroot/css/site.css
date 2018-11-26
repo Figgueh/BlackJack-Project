@@ -17,7 +17,7 @@ body {
     background: transparent url('../images/tablenew.png')0 0 no-repeat;
     color: #333;
     font: 14px/17px Helvetica, Arial, Verdana, sans-serif;
-    height: 704px;
+    height: 685px;
     margin: 0 auto;
     position: relative;
     width: 1280px;
@@ -28,7 +28,7 @@ body {
     color: whitesmoke;
     position: relative;
     display: none;
-    bottom: 608px;
+    bottom: 590px;
     left: 433px;
     font-weight: 700;
     text-transform: uppercase;
@@ -289,7 +289,7 @@ span#playerhv {
     width: 80px;
     height: 80px;
     left: 101px;
-    top: -353px;
+    top: -334px;
     border-radius: 100px;
     border: none;
     outline: none;
@@ -305,8 +305,8 @@ span#playerhv {
     width: 80px;
     height: 80px;
     border-radius: 100px;
-    left: 257px;
-    top: -261px;
+    left: 256px;
+    top: -242px;
     border: none;
     outline: none;
 }
@@ -322,7 +322,7 @@ span#playerhv {
     height: 80px;
     border-radius: 100px;
     left: 433px;
-    top: -235px;
+    top: -216px;
     border: none;
     outline: none;
 }
@@ -337,8 +337,8 @@ span#playerhv {
     width: 81px;
     height: 81px;
     border-radius: 100px;
-    left: 594px;
-    top: -260px;
+    left: 595px;
+    top: -241px;
     border: none;
     outline: none;
 }

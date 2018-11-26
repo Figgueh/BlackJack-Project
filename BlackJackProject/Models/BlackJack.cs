@@ -81,6 +81,8 @@ namespace BlackJackProject.Models
                 Pot += bet;
 
             }
+
+
         }
 
         public void checkState()
@@ -132,11 +134,12 @@ namespace BlackJackProject.Models
             if(Winner == Player)
             {
                 Player.addAmount(Pot);
+               
             }
 
             //Show the card
             Dealer.Hand[0].IsVisible = true;
-            
+            Pot = 0;
 
         }
     }
